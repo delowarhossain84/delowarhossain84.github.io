@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Delowar | Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  background:#0f172a;
+  color:white;
+  scroll-behavior:smooth;
+}
+
+section{
+  padding:80px 10%;
+}
+
+h1,h2{
+  margin-bottom:20px;
+}
+
+/* HERO */
+.hero{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+
+.typing{
+  font-size:2.5rem;
+  border-right:3px solid;
+  white-space:nowrap;
+  overflow:hidden;
+  width:0;
+  animation:typing 4s steps(40,end) forwards, blink .7s infinite;
+}
+
+@keyframes typing{
+  from{width:0}
+  to{width:100%}
+}
+
+@keyframes blink{
+  50%{border-color:transparent}
+}
+
+/* CARDS */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+.card{
+  background:#1e293b;
+  padding:20px;
+  border-radius:15px;
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-10px);
+  background:#334155;
+}
+
+/* LINKS */
+a{
+  color:#38bdf8;
+  text-decoration:none;
+}
+
+a:hover{
+  text-decoration:underline;
+}
+
+/* SCROLL ANIMATION */
+.hidden{
+  opacity:0;
+  transform:translateY(30px);
+  transition:all 0.8s ease;
+}
+
+.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <h1 class="typing">Hi, I'm Md Delowar Hossain 👋</h1>
+  <p>CSE Student | AI/ML Enthusiast | IoT Developer</p>
+</section>
+
+<!-- ABOUT -->
+<section class="hidden">
+  <h2>About Me</h2>
+  <p>
+  I am a CSE student at Dhaka University of Engineering & Technology (DUET).
+  I work with AI/ML, IoT systems, and problem solving. Passionate about building
+  intelligent real-world solutions.
+  </p>
+</section>
+
+<!-- SKILLS -->
+<section class="hidden">
+  <h2>Skills</h2>
+  <div class="grid">
+    <div class="card">C++</div>
+    <div class="card">Python</div>
+    <div class="card">Machine Learning</div>
+    <div class="card">IoT (ESP32)</div>
+    <div class="card">Data Structures</div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="hidden">
+  <h2>Projects</h2>
+  <div class="grid">
+
+    <div class="card">
+      <h3>IoT Air Pollution Monitoring</h3>
+      <p>ESP32-based system to monitor environmental data.</p>
+    </div>
+
+    <!-- ADD MORE PROJECTS HERE -->
+
+  </div>
+</section>
+
+<!-- PROFILES -->
+<section class="hidden">
+  <h2>Profiles</h2>
+  <p>
+    <a href="https://github.com/delowarhossain84">GitHub</a> |
+    <a href="https://codeforces.com/profile/Md.Delowar_Hossain">Codeforces</a> |
+    <a href="https://www.codechef.com/users/mddelowarhossa">CodeChef</a> |
+    <a href="https://leetcode.com/u/mddelowarhossain/">LeetCode</a>
+  </p>
+</section>
+
+<!-- CONTACT -->
+<section class="hidden">
+  <h2>Contact</h2>
+  <p>Email: mddelowarhossainhda@gmail.com</p>
+</section>
+
+<script>
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('show');
+    }
+  });
+});
+
+document.querySelectorAll('.hidden').forEach(el=>{
+  observer.observe(el);
+});
+</script>
+
+</body>
+</html>
